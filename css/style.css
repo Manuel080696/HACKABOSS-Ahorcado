@@ -95,7 +95,6 @@ section.juego img {
 
 section.juego {
   min-height: 80vh;
-  min-width: 75vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -143,4 +142,8 @@ section.teclado button {
   border-radius: 10px;
   margin: 0.2rem;
   box-shadow: 2px 5px 7px black;
+}
+
+p.palabra {
+  margin: 1rem 0rem;
 }

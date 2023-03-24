@@ -1,5 +1,7 @@
 "use strict";
 
+import { parrafoPalabra, palabra, arrayGuioneBajos } from "./main.js";
+let letra;
 const tecladoSection = document.querySelector("section.teclado");
 let botonLetra;
 const arrayLetras = [
@@ -40,7 +42,31 @@ function crearTeclas() {
     botonLetra = document.createElement("button");
     botonLetra.textContent = arrayLetras[i];
     tecladoSection.append(botonLetra);
-    botonLetra.addEventListener("click", () => {});
+    botonLetra.addEventListener("click", (event) => {
+      letra = event.target.textContent;
+
+      console.log(letra);
+      imprimirTecla();
+    });
+  }
+}
+
+function imprimirTecla() {
+  for (let index = 0; index < palabra.length; index++) {
+    /* if (letra === palabra[index]) {
+      parrafoPalabra = [...parrafoPalabra];
+      if (indexOf(parrafoPalabra)) {
+        parrafoPalabra[index] = letra;
+        botonLetra.style.backgroundColor = "green";
+      }
+      console.log(letra);
+    } */
+    /* let indexDeParrafo = parrafoPalabra.indexOf((item, index) => {
+      return item;
+    }); */
+    /*  console.log(indexDeParrafo);
+    if (indexDeParrafo === palabra[index]) {
+    } */
   }
 }
 
