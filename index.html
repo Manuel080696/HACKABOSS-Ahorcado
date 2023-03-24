@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto01</title>
+    <title>Ahorcado</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <head></head>
-    <main></main>
-    <footer></footer>
+    <header><h1>Juego Ahorcado(has ganado/has pardido)</h1></header>
+    <main>
+      <section class="panel jugar hidden">
+        <figure><img src="./multimedia/img/foto ahorcado.png" alt="" /></figure>
+        <form action="">
+          <input type="text" placeholder="Nombre Usuario" />
+          <button class="usuario" type="submit">✏️</button>
+        </form>
+        <button class="jugar">Jugar</button>
+      </section>
+      <section class="panel juego hidden">
+        <button id="salir"></button>
+        <section class="puntuaciones">
+          <ul>
+            <li class="score">Score</li>
+            <li>200</li>
+          </ul>
+          <ul>
+            <li class="intentos">Intentos</li>
+            <li>2</li>
+          </ul>
+        </section>
+        <img src="./multimedia/img/ahorcado_0.png" alt="muneco" />
+        <section>
+          <p class="palabra">Palabra a introducir</p>
+          <section class="teclado">
+            <!-- <button class="teclado">A</button>
+            <button class="correcto">B</button>
+            <button class="incorrecto">C</button> -->
+          </section>
+        </section>
+      </section>
+      <section class="panel puntuaciones hidden">
+        <h2>Tabla de puntuaciones</h2>
+        <ol>
+          <li>Weslley: 10000000</li>
+        </ol>
+        <button class="botonPuntuaciones">Nueva partida</button>
+      </section>
+    </main>
+    <script type="module" src="./js/panels.js"></script>
+    <script type="module" src="./js/teclado.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
