@@ -1,9 +1,15 @@
 "use strict";
 
-import { parrafoPalabra, palabra, arrayGuioneBajos } from "./main.js";
+import { palabra, arrayGuioneBajos, imprimirGuiones } from "./main.js";
+
+import { mostrarPuntuaciones, esconderPaneles } from "./panels.js";
+
 let letra;
 const tecladoSection = document.querySelector("section.teclado");
 let botonLetra;
+let idx;
+let usuarioHaGanado = false;
+
 const arrayLetras = [
   "A",
   "B",
@@ -25,6 +31,7 @@ const arrayLetras = [
   "Q",
   "R",
   "S",
+  "T",
   "U",
   "V",
   "W",
@@ -34,40 +41,38 @@ const arrayLetras = [
 ];
 
 function crearTeclas() {
-  /* for (const elemnts of arrayLetras) {
-    document.createElement("button");
-  } */
-
   for (let i = 0; i < arrayLetras.length; i++) {
     botonLetra = document.createElement("button");
     botonLetra.textContent = arrayLetras[i];
     tecladoSection.append(botonLetra);
     botonLetra.addEventListener("click", (event) => {
       letra = event.target.textContent;
-
-      console.log(letra);
       imprimirTecla();
+      ganarJuego();
     });
   }
 }
 
 function imprimirTecla() {
-  for (let index = 0; index < palabra.length; index++) {
-    /* if (letra === palabra[index]) {
-      parrafoPalabra = [...parrafoPalabra];
-      if (indexOf(parrafoPalabra)) {
-        parrafoPalabra[index] = letra;
-        botonLetra.style.backgroundColor = "green";
-      }
-      console.log(letra);
-    } */
-    /* let indexDeParrafo = parrafoPalabra.indexOf((item, index) => {
-      return item;
-    }); */
-    /*  console.log(indexDeParrafo);
-    if (indexDeParrafo === palabra[index]) {
-    } */
+  for (let elem = 0; elem < palabra.length; elem++) {
+    idx = palabra.indexOf(letra, elem);
+    arrayGuioneBajos[idx] = letra;
+    imprimirGuiones();
+  }
+}
+
+function ganarJuego() {
+  const arrayGuionesToString = arrayGuioneBajos.toString();
+  const palabraToStirng = palabra.toString();
+  console.log(palabraToStirng);
+  console.log(arrayGuionesToString);
+  if (palabraToStirng === arrayGuionesToString) {
+    usuarioHaGanado = true;
+    esconderPaneles();
+    mostrarPuntuaciones();
   }
 }
 
 crearTeclas();
+
+export { usuarioHaGanado };
