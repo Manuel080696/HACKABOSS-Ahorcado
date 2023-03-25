@@ -41,7 +41,7 @@ section.jugar img {
 }
 
 section.jugar {
-  min-height: 80vh;
+  min-height: 70vh;
   min-width: 75vw;
   display: flex;
   flex-direction: column;
@@ -113,7 +113,7 @@ section.juego button#salir {
   height: 2rem;
   width: 2rem;
   padding: 0.2rem;
-  background-image: url("/HACKABOSS-Proyecto01/multimedia/img/cerrar_480.png");
+  background-image: url("/multimedia/img/cerrar_480.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
