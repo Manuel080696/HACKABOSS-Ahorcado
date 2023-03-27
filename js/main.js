@@ -5,28 +5,34 @@ let parrafoPalabra = document.querySelector("p.palabra");
 let arrayGuioneBajos = [];
 let palabra;
 let palabraOriginal;
+let numeroRandom;
 
+function reseteoMain() {
+  palabraOriginal = "";
+  palabra = [];
+  arrayGuioneBajos = [];
+  parrafoPalabra.textContent = "";
+  numeroRandom = 0;
+}
 function escribirPalabraAleatroria(elemento) {
-  const numeroRandom = Math.floor(Math.random() * elemento.length);
+  reseteoMain();
+  numeroRandom = Math.floor(Math.random() * elemento.length);
   palabraOriginal = elemento[numeroRandom];
-  console.log(palabraOriginal);
   palabra = [...palabraOriginal];
-
+  console.log(palabraOriginal); //Preguntar Stefano funciones
   for (const element of palabra) {
     if (element !== " ") {
       arrayGuioneBajos.push("_");
     } else {
       arrayGuioneBajos.push(" ");
     }
+    imprimirGuiones();
   }
-
-  imprimirGuiones();
 }
-
 function imprimirGuiones() {
   parrafoPalabra.textContent = arrayGuioneBajos
     .toString()
-    .replaceAll(" ", "‍‍‍‍‍ㅤ")
+    .replaceAll(" ", "ㅤ")
     .replaceAll(",", " ");
 }
 

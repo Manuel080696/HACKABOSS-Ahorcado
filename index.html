@@ -8,44 +8,52 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header><h1>Juego Ahorcado(has ganado/has pardido)</h1></header>
     <main>
       <section class="panel jugar hidden">
-        <figure><img src="./multimedia/img/foto ahorcado.png" alt="" /></figure>
+        <img
+          class="ahorcadoTitulo"
+          src="./multimedia/img/nuevoDiseno/ahorcado.png"
+        />
+        <img class="logoAhorcado" src="./multimedia/img/ahorcadoIcono.png" />
         <form action="">
-          <input type="text" placeholder="Nombre Usuario" />
+          <input type="text" value="" placeholder="Nombre Usuario" />
           <button class="usuario" type="submit">✏️</button>
         </form>
-        <button class="jugar">Jugar</button>
+        <button class="jugar" disabled>Jugar</button>
       </section>
       <section class="panel juego hidden">
         <button id="salir"></button>
         <section class="puntuaciones">
           <ul>
-            <li class="score">Score</li>
-            <li>200</li>
+            <li>Score</li>
+            <li class="score"></li>
           </ul>
           <ul>
-            <li class="intentos">Intentos</li>
-            <li>2</li>
+            <li>Intentos</li>
+            <li class="intentos"></li>
           </ul>
         </section>
-        <img src="./multimedia/img/ahorcado_0.png" alt="muneco" />
+        <img
+          src="./multimedia/img/nuevoDiseno/rodolfoAhorcado.png"
+          alt="muneco"
+        />
         <section>
           <p class="palabra">Palabra a introducir</p>
           <section class="teclado"></section>
         </section>
       </section>
       <section class="panel puntuacionesTabla hidden">
-        <h2>Tabla de puntuaciones</h2>
-        <ol>
-          <li>Weslley: 10000000</li>
-        </ol>
+        <h2>Has Ganado/Has perdido</h2>
+        <aside>
+          <h3>Tabla de puntuaciones</h3>
+          <ol></ol>
+        </aside>
         <button class="botonPuntuaciones">Nueva partida</button>
       </section>
     </main>
     <script type="module" src="./js/panels.js"></script>
     <script type="module" src="./js/teclado.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/usuario.js"></script>
   </body>
 </html>
