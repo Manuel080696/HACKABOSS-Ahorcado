@@ -4,30 +4,28 @@ const arrayPalabras = ["JAVA SCRIPT", "DOM", "PIZZA DE PIÑA", "HTML", "HOLA"];
 let parrafoPalabra = document.querySelector("p.palabra");
 let arrayGuioneBajos = [];
 let palabra;
-let palabraOriginal;
 
-function escribirPalabraAleatroria(elemento) {
-  const numeroRandom = Math.floor(Math.random() * elemento.length);
-  palabraOriginal = elemento[numeroRandom];
-  console.log(palabraOriginal);
-  palabra = [...palabraOriginal];
+function escribirPalabraAleatroria(elemnto) {
+  const numeroRandom = Math.floor(Math.random() * elemnto.length);
+  /* console.log(numeroRandom); */
 
+  palabra = elemnto[numeroRandom];
+  palabra = [...palabra];
+
+  console.log(palabra);
   for (const element of palabra) {
     if (element !== " ") {
       arrayGuioneBajos.push("_");
     } else {
       arrayGuioneBajos.push(" ");
     }
+    imprimirGuiones();
   }
 
-  imprimirGuiones();
-}
+  parrafoPalabra.textContent = arrayGuioneBajos.join(" ");
+  comprobarPalabra();
 
-function imprimirGuiones() {
-  parrafoPalabra.textContent = arrayGuioneBajos
-    .toString()
-    .replaceAll(" ", "‍‍‍‍‍ㅤ")
-    .replaceAll(",", " ");
+  console.log(arrayGuioneBajos);
 }
 
 export {

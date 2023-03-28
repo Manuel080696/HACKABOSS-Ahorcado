@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 
 * {
   padding: 0;
@@ -7,20 +7,10 @@
 }
 
 body {
-  min-height: 100vh;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    0deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  font-family: "Luckiest Guy", sans-serif;
 }
 
-h1,
 h2 {
-  font-family: "Anton", sans-serif;
   font-size: 4rem;
 }
 
@@ -29,59 +19,84 @@ h1.hidden {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* CSS Panel Principal */
-section.jugar img {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-}
-
-section.jugar {
-  min-height: 70vh;
-  min-width: 75vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  background-image: url("/multimedia/img/nuevoDiseno/background.jpg");
+  background-size: cover;
 }
 
 section.panel.hidden {
   display: none;
 }
+/* CSS Panel Principal */
+
+img.ahorcadoTitulo {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 80%;
+}
+
+img.logoAhorcado {
+  width: 60%;
+}
+section.jugar {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
 
 form {
-  padding-bottom: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  width: 22rem;
+  background-image: url("/multimedia/img/nuevoDiseno/botonInicio/onClick.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+  color: white;
 }
 
 form input {
   height: 2rem;
   width: 17rem;
   padding: 0.5rem;
+  margin-right: 0.3rem;
+  border: none;
+  background-color: transparent;
+  background-image: url("/multimedia/img/nuevoDiseno/loginFondoTexto.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 form button {
   border: none;
-  height: 1.8rem;
+  height: 1.7rem;
   padding: 0.2rem;
-  background: none;
+  background-color: transparent;
+  background-image: url("/multimedia/img/nuevoDiseno/tecla.png");
+  background-size: cover;
+  background-position: center;
 }
 
 button.jugar {
   height: 4rem;
   width: 20rem;
   border: none;
-  border-radius: 10px;
-  background: rgb(131, 58, 180);
-  background: linear-gradient(
-    90deg,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(253, 29, 29, 1) 50%,
-    rgba(252, 176, 69, 1) 100%
-  );
+  background-image: url("/multimedia/img/nuevoDiseno/botonInicio/idle.png");
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
   font-size: 2.5rem;
   font-weight: bold;
   color: white;
@@ -90,22 +105,43 @@ button.jugar {
 /* CSS Panel Juego */
 
 section.juego img {
-  width: 400px;
+  width: 55%;
 }
 
 section.juego {
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
-section.puntuaciones {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+section.teclado {
+  text-align: center;
+  padding: 1rem;
+  min-height: 20%;
+  background-image: url("/multimedia/img/nuevoDiseno/fondoTeclado.png");
+  background-repeat: repeat;
+  background-size: cover;
+  border-top: 5px solid rgba(0, 0, 0, 0.603);
+  border-left: 5px solid rgba(0, 0, 0, 0.603);
+  border-right: 5px solid rgba(0, 0, 0, 0.603);
+  border-radius: 15px 15px 0 0;
+  min-width: 100vw;
+}
+
+section.juego section.teclado button {
+  background-image: url("/multimedia/img/nuevoDiseno/tecla.png");
+  background-color: transparent;
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+  border: none;
+  width: 8%;
+  padding: 3% 0;
+  border-radius: 10px;
+  margin: 0.2rem;
+  box-shadow: 4px 4px 3px black;
 }
 
 section.juego button#salir {
@@ -113,14 +149,21 @@ section.juego button#salir {
   height: 2rem;
   width: 2rem;
   padding: 0.2rem;
-  background-image: url("/multimedia/img/cerrar_480.png");
+  background-image: url("/multimedia/img/nuevoDiseno/botonSalir.png");
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 50%;
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+section.puntuaciones {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 section.puntuaciones ul {
@@ -131,19 +174,59 @@ section.puntuaciones ul {
 li.score,
 li.intentos {
   font-weight: bold;
+  color: white;
 }
 
 section.puntuaciones ul li {
-  margin-top: 1rem;
-}
-
-section.teclado button {
-  padding: 1rem;
-  border-radius: 10px;
-  margin: 0.2rem;
-  box-shadow: 2px 5px 7px black;
+  padding-top: 1rem;
+  color: white;
 }
 
 p.palabra {
-  margin: 1rem 0rem;
+  padding: 1rem 0rem;
+  color: white;
+}
+
+/* CSS Puntuaciones */
+
+section.puntuacionesTabla {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+h3 {
+  margin-left: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+section.puntuacionesTabla aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/multimedia/img/nuevoDiseno/puntuacionesBack.png");
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px;
+  width: 70%;
+  padding: 2rem 0 1rem 1rem;
+}
+
+button.botonPuntuaciones {
+  background-image: url("/multimedia/img/nuevoDiseno/botonInicio/idle.png");
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  height: 4rem;
+  width: 20rem;
+  font-weight: bold;
+  color: white;
+  font-size: 1.3rem;
 }
