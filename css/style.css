@@ -261,6 +261,32 @@ button.botonPuntuaciones {
   font-size: 1.3rem;
 }
 
+section.puntuacionesTabla ol {
+  text-align: start;
+  overflow: scroll;
+  height: 100%;
+  width: auto;
+  overflow-x: hidden;
+  padding: 0 2rem;
+  max-height: 13rem;
+}
+
+section.puntuacionesTabla ol::-webkit-scrollbar {
+  width: 7px;
+}
+
+section.puntuacionesTabla ol::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+section.puntuacionesTabla ol::-webkit-scrollbar-thumb {
+  background: #d6d0d0;
+}
+
+section.puntuacionesTabla ol::-webkit-scrollbar-thumb:hover {
+  background: rgb(160, 139, 139);
+}
+
 /**/
 /* Empieza aquí el media query */
 /**/
@@ -412,6 +438,16 @@ button.botonPuntuaciones {
     height: 4rem;
     font-size: 1.3rem;
   }
+
+  section.puntuacionesTabla ol {
+    font-size: 1.3rem;
+    padding: 0 7rem;
+    max-height: 25rem;
+  }
+
+  section.puntuacionesTabla ol::-webkit-scrollbar {
+    width: 15px;
+  }
 }
 
 /**/
@@ -519,5 +555,15 @@ button.botonPuntuaciones {
     height: 6rem;
     width: 18rem;
     font-size: 2rem;
+  }
+
+  section.puntuacionesTabla ol {
+    font-size: 2rem;
+    padding: 0 8rem;
+    max-height: 30rem;
+  }
+
+  section.puntuacionesTabla ol::-webkit-scrollbar {
+    width: 20px;
   }
 }
