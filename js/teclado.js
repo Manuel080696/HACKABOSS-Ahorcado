@@ -1,5 +1,5 @@
 "use strict";
-
+//Import -----------------------------------------------------------
 import {
   palabra,
   arrayGuioneBajos,
@@ -9,7 +9,8 @@ import {
 
 import { mostrarPuntuaciones, esconderPaneles } from "./panels.js";
 
-import State, { crearLi, buscoUsuario, addUser } from "./usuario.js";
+import { crearLi } from "./usuario.js";
+//Import -----------------------------------------------------------
 
 let letra;
 const tecladoSection = document.querySelector("section.teclado");
@@ -18,14 +19,18 @@ const liIntentosElement = document.querySelector("li.intentos");
 let botonLetra;
 let idx;
 let usuarioHaGanado = false;
+
+//Objeto contador, para poder modificar la score del jugador
 let contadorScore = {
   score: 0,
 };
+
 let contadorIntentos = 6;
 
 liScoreElement.textContent = contadorScore;
 liIntentosElement.textContent = contadorIntentos;
 
+//Array de letras para generar el teclado
 const arrayLetras = [
   "A",
   "B",
@@ -56,6 +61,7 @@ const arrayLetras = [
   "Z",
 ];
 
+//Función para crear las teclas del teclado
 function crearTeclas() {
   const fragmentTeclado = document.createDocumentFragment();
   for (let i = 0; i < arrayLetras.length; i++) {
@@ -63,26 +69,36 @@ function crearTeclas() {
     botonLetra.textContent = arrayLetras[i];
     fragmentTeclado.append(botonLetra);
     botonLetra.addEventListener("click", (event) => {
+      //Si la letra a la que hacemos click no está en la palabra secreta
       if (palabra.indexOf(event.target.textContent) === -1) {
+        //Le quitamos una vida
         contadorIntentos -= 1;
         liIntentosElement.textContent = contadorIntentos;
+        //La letra de la tecla se pone roja
         event.target.style.color = "red";
+        //Desabilitamos el botón, por si le vuelve a hacer click no pierda más vidas
         event.target.toggleAttribute("disabled");
+        //Cambiamos la imagen de Rodolfo(esqueleto)
         cambiarImagenPerdidaPuntos();
       } else {
+        //La letra de la tecla se pone verde
         event.target.style.color = "green";
+        //Desabilitamos el botón, por si le vuelve a hacer click no pierda más vidas
         event.target.toggleAttribute("disabled");
       }
+      //Asiganmos el valor de la telca clickeada a la variable letra (es usada en la función imprimirTecla)
       letra = event.target.textContent;
       imprimirTecla();
       perderJuego();
       ganarJuego();
     });
   }
+  //Reinicio del color de las teclas
   botonLetra.style.color = "white";
   tecladoSection.append(fragmentTeclado);
 }
 
+//Le asiganmos a el párrafo las coincidencias de letra con la palabraSecreta (palabra)
 function imprimirTecla() {
   for (let elem = 0; elem < palabra.length; elem++) {
     idx = palabra.indexOf(letra, elem);
@@ -91,6 +107,7 @@ function imprimirTecla() {
   }
 }
 
+//Cuándo el usuario acierta la palabra
 function ganarJuego() {
   const arrayGuionesToString = arrayGuioneBajos.toString();
   const palabraToStirng = palabra.toString();
@@ -101,6 +118,7 @@ function ganarJuego() {
     setTimeout(() => {
       esconderPaneles();
       mostrarPuntuaciones();
+      //Reseteo del booleano
       usuarioHaGanado = false;
       reseteoDeImagenRodolfo();
       crearLi();
@@ -108,6 +126,7 @@ function ganarJuego() {
   }
 }
 
+//Cuándo el usuario pierde o le da a el botón salir
 function perderJuego() {
   if (contadorIntentos === 0) {
     setTimeout(() => {
