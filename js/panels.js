@@ -13,6 +13,8 @@ import {
   tecladoSection,
 } from "./teclado.js";
 
+import { crearLi } from "./usuario.js";
+
 const jugar = document.querySelector(".jugar");
 const juego = document.querySelector(".juego");
 const puntuaciones = document.querySelector(".puntuacionesTabla");
