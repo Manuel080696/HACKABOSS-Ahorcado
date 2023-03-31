@@ -4,56 +4,134 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titulo -->
     <title>Ahorcado</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- FAVICON CON SUS DISTINTAS VERSIONES PC, MOVIL, ... -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/multimedia/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/multimedia/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/multimedia/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/multimedia/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/multimedia/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <main>
+      <!-- El botón sonido mutear o desmutear -->
+      <button id="sonido" title="Mutear sonido">
+        <audio
+          src="/multimedia/audio/Divertissement - Kevin MacLeod.mp3"
+          title="Mutear sonido"
+          loop
+          autoplay
+        ></audio>
+      </button>
       <section class="panel jugar hidden">
+        <!-- IMG del título -->
         <img
           class="ahorcadoTitulo"
           src="./multimedia/img/nuevoDiseno/ahorcado.png"
+          alt="Imagén del titulo: AHORCADO"
         />
-        <img class="logoAhorcado" src="./multimedia/img/ahorcadoIcono.png" />
-        <form action="">
-          <input type="text" value="" placeholder="Nombre Usuario" />
+        <!-- IMG de la portada -->
+        <img
+          class="logoAhorcado"
+          src="./multimedia/img/nuevoDiseno/rodolfoPerdido-8.png"
+          alt="Imagén de inicio del ahorcado, un esqueleto ahorcado"
+        />
+        <!-- Formulario para añadir a usuarios y guardar su información -->
+        <form name="formLogin">
+          <!-- Input dóde colocaremos nuestro nombre de ussuario (no acepta 
+               espacios) -->
+          <input
+            type="text"
+            onkeypress="return event.charCode != 32"
+            name="newUsuario"
+            id="newUsuario"
+            placeholder="Nombre Usuario (sin espacio)"
+            required
+          />
+          <!-- Este botón permite cambiar esntre asignar un usuario o crear 
+               uno nuevo -->
           <button class="usuario" type="submit">✏️</button>
         </form>
+        <!-- Botón jugar que si no está asignado un usuario no va a permitir 
+             jugar al ahorcado -->
         <button class="jugar" disabled>Jugar</button>
       </section>
+      <!-- Esta es la sección de jugar al ahorcado -->
       <section class="panel juego hidden">
-        <button id="salir"></button>
+        <!-- El botón pista que permite dar una pista al jugador -->
+        <button id="pista" title="Pista para el ahorcado"></button>
+        <!-- El botón salir que nos lleva a la pantalla de puntuaciones -->
+        <button id="salir" title="Salir del juego"></button>
         <section class="puntuaciones">
           <ul>
+            <!-- Asignamos los puntos del juagador con JS -->
             <li>Score</li>
             <li class="score"></li>
           </ul>
           <ul>
+            <!-- El número de intentos del jugador, que irá bajando hasta 
+                 cero, cuando falle una letra -->
             <li>Intentos</li>
             <li class="intentos"></li>
           </ul>
         </section>
+        <!-- Imagen ue irá cambiando, según los intentos bajen,
+             completando por partes a un esqueleto, hasta perder e ir a la 
+             sección o panel de puntuaciones-->
         <img
-          src="./multimedia/img/nuevoDiseno/rodolfoAhorcado.png"
-          alt="muneco"
+          id="rodolfo"
+          src="./multimedia/img/vidasRodolfo/horcaVacia.png"
+          alt="Imagen de la horca, que irá cambiando, según los intentos bajen,
+               completando por partes a un esqueleto"
         />
-        <section>
+        <!-- ES una sección para el teclado, que se hace en JS 
+          (por si hay distintos idiomas o dificultad), y los guiones de la palabra -->
+        <section class="pcInferior">
+          <!-- Guiones que se tranforman en letras según se acierten las letras -->
           <p class="palabra">Palabra a introducir</p>
+          <!-- Pista para ayudar al ususario -->
+          <p id="parrafoPista"></p>
+          <!-- Aquí esta la sección teclado dónde van a ir todas las teclas cradas en JS -->
           <section class="teclado"></section>
         </section>
       </section>
+      <!-- El Panel de Puntuaciones tanto si han gando como perdido -->
       <section class="panel puntuacionesTabla hidden">
         <h2>Has Ganado/Has perdido</h2>
         <aside>
           <h3>Tabla de puntuaciones</h3>
-          <ol></ol>
+          <ol>
+            <!-- Dóde irán los diversos usuario que se creen con sus puntuaciones -->
+          </ol>
         </aside>
-        <button class="botonPuntuaciones">Nueva partida</button>
+        <!-- Un botón que nos lleva a la pantalla de inicio por si queremos cambiar 
+             de usuario -->
+        <button class="botonPuntuaciones">¿Volver a jugar?</button>
       </section>
     </main>
-    <script type="module" src="./js/panels.js"></script>
-    <script type="module" src="./js/teclado.js"></script>
-    <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/usuario.js"></script>
+    <script type="module" src="/js/panels.js"></script>
   </body>
 </html>
