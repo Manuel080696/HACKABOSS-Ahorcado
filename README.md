@@ -16,4 +16,15 @@ ERRORES:
 1. -Cuándo inicializa el ahorcado, te da una palabra. Pero cuándo se le da a nueva partida, te crea 2 palabras a mayores (y otros 2 números random). Y ambos aumentan en cantidad exponencialmente.
 2. -Cuándo jugamos por primera vez, ganemos o perdamos (perder toda las vidas o darle a salir) imprime una sola vez la puntuación y el usuario. Pero cúando le damos a nueva partida y le damos a jugar,
 al perder o ganar, nos aumenta exponencialmente la cantidad de nombres de usuario y la puntuación.
-3. -Si el usuario coicide debería reemplazar a la puntuación anteriro.
+3. -Si el usuario coicide debería reemplazar a la puntuación anterior.
+SOLUCIONES:
+1.-Había que sacar los botones fuera de las funciones de los paneles (panels.js), porque sinó se duplicaban en cada ciclo todas las funciones dentro de ellas.
+2.-Creamos un objeto para contador en vez de una variable nativa, para poder modificar los valores desde diferentes archivos, así poder modificar la score y que se plasme en el panel final(puntuaciones). También, hicimos que busque en local la coincidencia del nombre, mediante un findIndex(), si coincide no creará un nuevo usuario sino que le modificará la score. Pero si no existe, lo creará.
+
+31/03 a las 12:30
+ERRORES:
+1.-El sonido nos lanza un error, ya que le hemos puesto play(), en el script para que empezara a reproducir. Porque poniendole autoplay, en los navegadores como Chrome o Safari, no empezaba a roproducir automáticamente sino que había que darle al botón de mute 2 veces.
+SOLUCIONES:
+2.-Hemos descubierto mirando en internet que el autoplay si funcionaba, hemos eliminado el play() del script porque lo que estaba ocurriendo es que en los navegadores
+grandes como Chrome o Safari, han desabilitado al entrar en una página que se reproduzcan sonidos automáticamente sin consentimiento de los usuarios. Hemos provado en 
+otros navegadores y funciona perfectamente.
